@@ -8,16 +8,82 @@ namespace ConsoleApp1
 
     public class Kuro
     {
-        public int cc { get; set; }
+          public Kuro()              //构造函数 初始化每个一个成员  ctor
+        {
+            Height = _Height;
+            //Width = _Width;
+            //Depth = _Depth;
+        }
+
+        public int cc { get; set; }               //prop快捷设置成员属性
         public string aa { get; set; }
         public static int ccc = 100;
         public static string aaa = "Thanks";
+
+
+         private int height;
+        private int width;
+        private int depth;
+
+         public int Height                         //属性设置  每一个成员的 GET SET属性设置 
+        {
+            get { 
+            
+                return height;
+            }
+            set 
+            {
+                if (value<0 || value > 999)
+                {
+                    Console.WriteLine("高度值超出范围");
+                    throw new ArgumentException();
+                }
+                height = value;
+            }
+        }
+        public int Width
+        {   
+            get
+            {
+                return width;
+            }
+            set 
+            {
+                if (value < 0 || value > 999)
+                {
+                    Console.WriteLine("宽度值超出范围");
+                    throw new ArgumentException();
+                }
+                width = value;
+            }
+        }
+        public int Depth
+        {
+            get { return depth; }
+            set { 
+                if (value < 0 || value > 999)
+                {
+                    Console.WriteLine("深度值超出范围");
+                    throw new ArgumentException();
+                }
+                depth = value;
+            }
+        }
+        public void volume()
+        {
+            Console.WriteLine($"您输入的物体体积为: {height}*{width}*{depth} = {height * width * depth}");
+        }
+
+
+
 
         //public Person(string _name, int _age)
         //{
         //    cc = _name;
         //    aa = _age;
         //}
+
+
     }
 
 
@@ -72,10 +138,7 @@ namespace ConsoleApp1
 
 
 
-            void func()
-            {
-                Console.WriteLine("13441");
-            }
+
             static int func1(int _number)
             {
                 return (_number + 5) * 2;
@@ -109,14 +172,33 @@ namespace ConsoleApp1
                     result += i;
                 return result;
             }
-            static void Main()
-            {
 
-                Kuro k = new();                    //类的对象引用
-                k.cc = 1;
-                k.aa = "kuuooooo";
-                Console.WriteLine(Kuro.ccc);
-                Console.WriteLine(Kuro.aaa);
+
+
+
+            static void Main()
+            {                                                              //用构造函数初始化类的成员属性
+                //Console.WriteLine("请输入物体的高度X宽度X深度:");         
+                //Kuro kk = new Kuro(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
+                //Kuro kk1 = new Kuro(10, 20, 30);
+
+                //kk.volume();
+
+
+                //Kuro KK2 = new Kuro(50)                        //快速初始化语句，初始化顺序在构造函数之后。
+                //{
+                //    Width = 20,Depth = 100
+                //};
+                //KK2.volume();
+
+
+
+
+                //Kuro k = new();                    //类的对象引用
+                //k.cc = 1;
+                //k.aa = "kuuooooo";
+                //Console.WriteLine(Kuro.ccc);
+                //Console.WriteLine(Kuro.aaa);
 
 
                 //var reg5 = 9;
@@ -244,21 +326,21 @@ namespace ConsoleApp1
                 //}
 
 
-                int Number = 100;                  //ref 作为引用传递参数    in代表只读
-                float r;
-                Mytest(ref Number, out r);
-                Console.WriteLine(Number);
-                Console.WriteLine(r);
-                Console.WriteLine(Getsum(1, 3, 5, 7, 9, 11, 13, 15, 17, 19));     //参数数组
-                Msg("OK");                                               //默认传参
-                Msg("NG", 1);                                            //指定传参
+                //int Number = 100;                  //ref 作为引用传递参数    in代表只读
+                //float r;
+                //Mytest(ref Number, out r);
+                //Console.WriteLine(Number);
+                //Console.WriteLine(r);
+                //Console.WriteLine(Getsum(1, 3, 5, 7, 9, 11, 13, 15, 17, 19));     //参数数组
+                //Msg("OK");                                               //默认传参
+                //Msg("NG", 1);                                            //指定传参
 
-                Kuro1 k1 = new Kuro1(18,"Yama");
-                Kuro1 k2 = new Kuro1(15, "Jerry");
-                Kuro1 k3 = new Kuro1(17, "Yawasaki");
-                k1.info();
-                k2.info();
-                k3.info();
+                //Kuro1 k1 = new Kuro1(18,"Yama");
+                //Kuro1 k2 = new Kuro1(15, "Jerry");
+                //Kuro1 k3 = new Kuro1(17, "Yawasaki");
+                //k1.info();
+                //k2.info();
+                //k3.info();
 
 
             }
