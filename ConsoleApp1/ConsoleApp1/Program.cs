@@ -6,20 +6,57 @@ using System.Threading.Channels;
 namespace ConsoleApp1
 {
 
-     class Kuro
+    interface operation                                 //interface接口  通过接口实现多态
+    {
+        void Num(int a,int b);
+
+    }
+
+    class Add : operation                           // 子类继承
+    {
+        public void Num(int a, int b)
+        {
+            Console.WriteLine($"[调用加法]: {a} + {b} = {a + b}");
+        }
+    }
+
+    class Sub : operation
+    {
+        public void Num(int a, int b)
+        {
+            Console.WriteLine($"[调用减法]: {a} - {b} = {a - b}");
+        }
+    }
+    class Mul : operation
+    {
+        public void Num(int a, int b)
+        {
+            Console.WriteLine($"[调用乘法]: {a} * {b} = {a * b}");
+        }
+    }
+    class Div : operation
+    {
+        public void Num(int a, int b)
+        {
+            Console.WriteLine($"[调用除法]: {a} / {b} = {a / b}");
+        }
+    }
+
+    class Kuro
     {   
           public Kuro(int _Height )              //构造函数 初始化每个一个成员  ctor
         {
             Height = _Height;
             //Width = _Width;
             //Depth = _Depth;
+            
         }
 
         public int cc { get; set; }               //prop快捷设置成员属性
         public string aa { get; set; }
         public static int ccc = 100;
         public static string aaa = "Thanks";
-
+        
 
         private int height;
         private int width;
@@ -188,14 +225,27 @@ namespace ConsoleApp1
                 return result;
             }
 
-
-
-
+            static void Getin(operation num) 
+            {
+                num.Num(int.Parse(Console.ReadLine()),int.Parse(Console.ReadLine()));
+            }
             static void Main()
-            {                                                              //用构造函数初始化类的成员属性
-                                                                           //Console.WriteLine("请输入物体的高度X宽度X深度:");         
-                                                                           //Kuro kk = new Kuro(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
-                                                                           //Kuro kk1 = new Kuro(10, 20, 30);
+            {
+
+                operation add = new Add();                   //static多态 通过接口实现多态         
+                operation sub = new Sub();
+                operation mul = new Mul();
+                operation div = new Div();
+                Getin(div);
+
+
+
+
+
+                //用构造函数初始化类的成员属性
+                //Console.WriteLine("请输入物体的高度X宽度X深度:");         
+                //Kuro kk = new Kuro(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
+                //Kuro kk1 = new Kuro(10, 20, 30);
 
                 //kk.volume();
 
@@ -212,12 +262,12 @@ namespace ConsoleApp1
                 //zfx zfx = new(int.Parse(Console.ReadLine()));
                 //zfx.info(); 
                 //zfx.volume();
-                
+
                 //cfx cfx = new(int.Parse(Console.ReadLine()));
                 //cfx.info(); 
                 //cfx.volume();
 
-                
+
                 //Kuro zfx1= new zfx(int.Parse(Console.ReadLine()));    //子类继承方法重载。根据具体实例选择方法
                 //zfx1.info();
                 //Kuro cfx1 = new cfx(int.Parse(Console.ReadLine()));

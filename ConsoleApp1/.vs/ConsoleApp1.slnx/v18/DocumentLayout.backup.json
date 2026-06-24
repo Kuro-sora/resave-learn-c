@@ -40,12 +40,16 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\traxe\\source\\repos\\ConsoleApp1\\ConsoleApp1\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
-              "ToolTip": "C:\\Users\\traxe\\source\\repos\\ConsoleApp1\\ConsoleApp1\\Program.cs",
-              "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAALUAAAAAAAAAAADwv2UAAABgAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\traxe\\source\\repos\\ConsoleApp1\\ConsoleApp1\\Program.cs*",
+              "RelativeToolTip": "ConsoleApp1\\Program.cs*",
+              "ViewState": "AgIAANwAAAAAAAAAAAAcwO4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-17T07:01:11.096Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
