@@ -6,9 +6,9 @@ using System.Threading.Channels;
 namespace ConsoleApp1
 {
 
-    public class Kuro
-    {
-          public Kuro()              //构造函数 初始化每个一个成员  ctor
+     class Kuro
+    {   
+          public Kuro(int _Height )              //构造函数 初始化每个一个成员  ctor
         {
             Height = _Height;
             //Width = _Width;
@@ -21,7 +21,7 @@ namespace ConsoleApp1
         public static string aaa = "Thanks";
 
 
-         private int height;
+        private int height;
         private int width;
         private int depth;
 
@@ -74,7 +74,10 @@ namespace ConsoleApp1
             Console.WriteLine($"您输入的物体体积为: {height}*{width}*{depth} = {height * width * depth}");
         }
 
-
+        public virtual void info()                      //Virtual 关键字允许在派生类中重写方法 定义基类为虚方法
+        {
+            Console.WriteLine("This's Kuro");
+        }
 
 
         //public Person(string _name, int _age)
@@ -83,13 +86,30 @@ namespace ConsoleApp1
         //    aa = _age;
         //}
 
+    }
+        class zfx: Kuro
+    {
+        public zfx(int _Height) : base(_Height) { base.Depth = 10; }   //继承父类的构造函数
+        public override void info()                               //override 关键字允许在派生类中重写方法 定义派生类为重写方法
+        {
+            Console.WriteLine("This's zfx");
+        }
+    }
 
+    class cfx : Kuro
+    {
+        public cfx(int _Height) : base(_Height) { }          //继承父类的构造函数
+        public override void info()                         //override 关键字允许在派生类中重写方法 定义派生类为重写方法
+        {
+            Console.WriteLine("This's cfx");
+        }
     }
 
 
+
+
+
     class Kuro1
-
-
     {
 
         public Kuro1(int bb, string dd) 
@@ -130,13 +150,8 @@ namespace ConsoleApp1
             Console.WriteLine($"My name is {_dd},and I am {_bb} years old.");
         }
 
-
-
-
         class Program
         {
-
-
 
 
             static int func1(int _number)
@@ -178,9 +193,9 @@ namespace ConsoleApp1
 
             static void Main()
             {                                                              //用构造函数初始化类的成员属性
-                //Console.WriteLine("请输入物体的高度X宽度X深度:");         
-                //Kuro kk = new Kuro(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
-                //Kuro kk1 = new Kuro(10, 20, 30);
+                                                                           //Console.WriteLine("请输入物体的高度X宽度X深度:");         
+                                                                           //Kuro kk = new Kuro(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
+                                                                           //Kuro kk1 = new Kuro(10, 20, 30);
 
                 //kk.volume();
 
@@ -190,6 +205,23 @@ namespace ConsoleApp1
                 //    Width = 20,Depth = 100
                 //};
                 //KK2.volume();
+
+
+                //继承基类属性和方法，并且调用父类的构造函数初始化成员属性
+
+                //zfx zfx = new(int.Parse(Console.ReadLine()));
+                //zfx.info(); 
+                //zfx.volume();
+                
+                //cfx cfx = new(int.Parse(Console.ReadLine()));
+                //cfx.info(); 
+                //cfx.volume();
+
+                
+                //Kuro zfx1= new zfx(int.Parse(Console.ReadLine()));    //子类继承方法重载。根据具体实例选择方法
+                //zfx1.info();
+                //Kuro cfx1 = new cfx(int.Parse(Console.ReadLine()));
+                //cfx1.info();
 
 
 
@@ -341,6 +373,11 @@ namespace ConsoleApp1
                 //k1.info();
                 //k2.info();
                 //k3.info();
+
+
+
+
+
 
 
             }
