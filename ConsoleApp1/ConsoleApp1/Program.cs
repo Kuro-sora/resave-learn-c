@@ -181,8 +181,52 @@ namespace ConsoleApp1
             }
         }
 
+        enum Color { Red, Green, Blue,Pink,Yellow };             //枚举类型 实际是int类型  默认从0开始  可以指定值
 
-        public void info() 
+
+        public struct encrypt                                    //隐式类型转换  通过implicit关键字实现
+        {
+            public int t1, t2, t3;
+
+            public encrypt(int t1, int t2, int t3)
+            {
+                this.t1 = t1;
+                this.t2 = t2;
+                this.t3 = t3;
+            }
+            public void show()
+            {
+                Console.WriteLine($"MyStruct: {t1}, {t2}, {t3}");
+            }
+            public static implicit operator encrypt(decrypt a)
+            {
+                return new (a.t1, a.t2, a.t3);
+            }
+
+        }
+        public struct decrypt                                               //显式类型转换  通过explicit关键字实现
+        {
+            public int t1, t2, t3;
+
+            public decrypt(int t1, int t2, int t3)
+            {
+                this.t1 = t1;
+                this.t2 = t2;
+                this.t3 = t3;
+            }
+            public void show()
+            {
+                Console.WriteLine($"MyStruct: {t1}, {t2}, {t3}");
+            }
+            public static explicit operator decrypt(encrypt a)            
+            {
+                return new(a.t1, a.t2, a.t3);
+            }
+        }
+
+
+
+            public void info() 
         {
             Console.WriteLine($"My name is {_dd},and I am {_bb} years old.");
         }
@@ -232,11 +276,35 @@ namespace ConsoleApp1
             static void Main()
             {
 
-                operation add = new Add();                   //static多态 通过接口实现多态         
-                operation sub = new Sub();
-                operation mul = new Mul();
-                operation div = new Div();
-                Getin(div);
+
+
+
+
+
+                                                         //隐式类型转换和显式类型转换
+                //encrypt v1 = new (1, 2, 3);
+                //decrypt v2 = new(4, 5, 6);
+                //v2 = (decrypt)v1;
+                //v1 = v2;
+
+
+                //MyStruct myStruct;                   // 结构体实例化 需要初始化字段，或者默认初始化 MyStruct myStruct = new（）
+                //myStruct.t1 = 1; myStruct.t2=2; myStruct.t3 = 2;
+                //myStruct.show();
+
+
+
+                //Color color = Color.Pink;                  //枚举类型
+                //int color1 = (int)Color.Red;              //枚举类型转换为int类型
+
+
+
+
+                //operation add = new Add();                   //static多态 通过接口实现多态         
+                //operation sub = new Sub();
+                //operation mul = new Mul();
+                //operation div = new Div();
+                //Getin(div);
 
 
 
