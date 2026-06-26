@@ -184,6 +184,8 @@ namespace ConsoleApp1
         enum Color { Red, Green, Blue,Pink,Yellow };             //枚举类型 实际是int类型  默认从0开始  可以指定值
 
 
+
+
         public struct encrypt                                    //隐式类型转换  通过implicit关键字实现
         {
             public int t1, t2, t3;
@@ -200,8 +202,14 @@ namespace ConsoleApp1
             }
             public static implicit operator encrypt(decrypt a)
             {
-                return new (a.t1, a.t2, a.t3);
+                return new encrypt(a.t1, a.t2, a.t3);
             }
+
+            public static encrypt operator +(encrypt a, encrypt b)                 //重载运算符
+            {
+                return new encrypt(a.t1 + b.t1, a.t2 + b.t2, a.t3 + b.t3);
+            }
+
 
         }
         public struct decrypt                                               //显式类型转换  通过explicit关键字实现
@@ -280,8 +288,19 @@ namespace ConsoleApp1
 
 
 
+                //string aa = "hello";
+                //object bb = aa;                                //装箱和拆箱    修改值类型为引用类型
+                //Console.WriteLine($"{aa},{bb}");
+                //bb = "world";                                  //bb是引用类型，修改bb的值不会影响aa的值
+                //Console.WriteLine($"{aa},{bb}");
 
-                                                         //隐式类型转换和显式类型转换
+
+                //encrypt a = new (1, 2, 3);                            //结构体运算
+                //encrypt b = new(4, 5, 6);
+                //encrypt c = a + b;
+                //c.show();
+
+                //隐式类型转换和显式类型转换
                 //encrypt v1 = new (1, 2, 3);
                 //decrypt v2 = new(4, 5, 6);
                 //v2 = (decrypt)v1;
